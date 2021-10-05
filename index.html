@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Super Shifumi</h1>
+
+    <div id="game-section">
+
+        <section class="my-section">
+            <div class="cissors">
+                <img src="./assets/cissors.png" alt="">
+                <button id="cissor-button" onclick="iChoose('cissors')">Ciseaux</button>
+            </div>
+
+            <div class="paper">
+                <img src="./assets/paper.png" alt="">
+                <button id="paper-button" onclick="iChoose('paper')">Feuille</button>
+            </div>
+
+            <div class="rock">
+                <img src="./assets/rock.png" alt="">
+                <button id="rock-button" onclick="iChoose('rock')">Pierre</button>
+            </div>
+
+        </section>
+
+        <div id="start-button">
+
+        </div>
+
+        <section class="ia-section">
+
+            <img src="./assets/rock.png" alt="" id="ia-result">
+
+        </section>
+    </div>
+
+    <div id="result"></div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
