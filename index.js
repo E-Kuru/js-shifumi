@@ -23,16 +23,23 @@ function randomChoice(){
 var myChoice = ''
 
 function iChoose (choice){
+    
+    var myTimer = setInterval(timer,100);
+    
+    setTimeout(function (){
+        
+        clearInterval(myTimer)
 
-    myChoice = choice
-
-    var choiceRandom = randomChoice(); 
-
-    compare(myChoice,choiceRandom)
-
-    newElement('p',`Score : IA ${heCount} - ${myCount} Me `, 'result')
-
-    return myChoice, newElement;
+        myChoice = choice
+    
+        var choiceRandom = randomChoice(); 
+        
+        compare(myChoice,choiceRandom)
+        
+        createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')    
+    },2000)
+        
+    return myChoice;
 }
 
 
@@ -40,36 +47,38 @@ var heCount = 0
 var myCount = 0
 
 function compare (a,b){
-
+    
     if(a === "cissors" && b === "rock" || a === "paper" && b === "cissors" || a === "rock" && b === "paper"){
-        alert('U lose hard my dude, try again')
+        console.log('U lose hard my dude, try again')
         console.log(a);
         console.log(b);
         heCount+= 1
         console.log(heCount);
     }
     else if (a === b){
-        alert('Damn egality')
+        console.log('Not even close baby')
         console.log(a);
         console.log(b);
     }
     else{
-        alert('U WIN THAT SO FAR !')
+        console.log('U win that, Well Played !')
         console.log(a);
         console.log(b);
         myCount+=1
         console.log(myCount);
     }
-
+    
     // Counter score 
     
     if(heCount === 3 && myCount < heCount){
-        alert('Ia Won my dude, u s***')
+        createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')
+        alert('IA Won my dude, u s***')
         heCount = 0
         myCount = 0
     }
     else if (myCount === 3 && heCount < myCount){
-        alert('I won that easyyy')
+        createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')
+        alert('U won that easyyy')
         myCount = 0
         heCount = 0
     }
@@ -77,15 +86,35 @@ function compare (a,b){
     return;
 }
 
-var newElement = function createElement (element,text,getId){
-
+function createElement (element,text,getId){
+    
     var newElement = document.createElement(element)
-
+    
     var txt = document.createTextNode(text)
+    
+    newElement.appendChild(txt)
+    
+    var gotElement = document.getElementById(getId)
+    
+    gotElement.appendChild(newElement)
+}
 
-    newElement = newElement.appendChild(txt)
+var i = 0
 
-    var gotElemnt = document.getElementById(getId)
+function timer (){    
 
-    return gotElemnt.appendChild(newElement)
+    if(i === 0){
+        document.getElementById('ia-result').setAttribute('src','./assets/paper.png')
+        i++
+    }
+    else if(i === 1){
+        i++
+        document.getElementById('ia-result').setAttribute('src','./assets/cissors.png')
+    }
+    else if (i === 2){
+        document.getElementById('ia-result').setAttribute('src','./assets/rock.png')
+        i++
+        i = 0
+    }
+    return timer;
 }
