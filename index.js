@@ -56,7 +56,7 @@ function compare (a,b){
         console.log(heCount);
     }
     else if (a === b){
-        console.log('Not even close baby')
+        console.log('Not even close')
         console.log(a);
         console.log(b);
     }
@@ -70,15 +70,15 @@ function compare (a,b){
     
     // Counter score 
     
-    if(heCount === 3 && myCount < heCount){
+    if(heCount === 3){
         createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')
-        alert('IA Won my dude, u s***')
+        alert('IA Won my dude')
         heCount = 0
         myCount = 0
     }
-    else if (myCount === 3 && heCount < myCount){
+    else if (myCount === 3){
         createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')
-        alert('U won that easyyy')
+        alert('U won that easy')
         myCount = 0
         heCount = 0
     }
