@@ -75,12 +75,14 @@ function compare (a,b){
         alert('IA Won my dude')
         heCount = 0
         myCount = 0
+        document.getElementById('result').innerHTML = ""
     }
     else if (myCount === 3){
         createElement('p',`Score : IA ${heCount} - ${myCount} Me`, 'result')
         alert('U won that easy')
         myCount = 0
         heCount = 0
+        document.getElementById('result').innerHTML = ""
     }
     
     return;
